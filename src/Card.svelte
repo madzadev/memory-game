@@ -1,14 +1,11 @@
 <script>
-   export let title, image;
+   export let title, image, onClick;
 </script>
 
-<div class="flip-card">
+<div class="flip-card" on:click={onClick}>
   <div class="flip-card-inner">
     <div class="flip-card-front">
        <h1>{title}</h1>
-      <p>Architect & Engineer</p>
-      <p>We love that guy</p>
-      
     </div>
     <div class="flip-card-back">
       <img src={image} alt="Avatar">
@@ -34,7 +31,6 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -53,14 +49,14 @@
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #bbb;
-  color: black;
+   background-color: dodgerblue;
+  color: white;
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
-  color: white;
   transform: rotateY(180deg);
+  background-color: #bbb;
+  color: black;
 }
 </style>
