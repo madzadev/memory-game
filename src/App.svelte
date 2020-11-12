@@ -19,8 +19,10 @@
 
   const compare = (a, b) => {
     ++guesses;
-    console.log(a.currentSrc, b.currentSrc);
-    if (a.currentSrc === b.currentSrc) {
+    if (
+      a.nextElementSibling.firstChild.currentSrc ===
+      b.nextElementSibling.firstChild.currentSrc
+    ) {
       console.log("Found a match");
       openCards.push(parseInt(a.innerText), parseInt(b.innerText));
       ++matches;
@@ -37,7 +39,7 @@
   const cardClickHandler = (e) => {
     if (firstChoice == "") {
       firstChoice = e.target;
-      console.log(e);
+      console.log("first click");
     } else {
       secondChoice = e.target;
       console.log("second click");
