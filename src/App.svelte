@@ -4,11 +4,16 @@
   let first = "";
   let second = "";
 
-  let number = 0;
+  let firstNum = 0;
+  let secondNum = 0;
+
+  let open = [];
 
   const compare = (a, b) => {
     if (a === b) {
       console.log("images match");
+      open.push(firstNum, secondNum);
+      console.log(`open array is: ${open}`);
     }
   };
 
@@ -18,10 +23,11 @@
   };
 
   const cardClickHandler = (e) => {
-    number = e.target.innerText;
     if (first == "") {
+      firstNum = e.target.innerText;
       first = e.target.currentSrc;
     } else {
+      secondNum = e.target.innerText;
       second = e.target.currentSrc;
       compare();
       reset();
@@ -50,6 +56,6 @@
       title={index + 1}
       image={'https://source.unsplash.com/random/200x150'}
       onClick={cardClickHandler}
-      active={number == index + 1 ? true : false} />
+      active={open.includes(index + 1) || firstNum == index + 1 || secondNum == index + 1} />
   {/each}
 </main>
