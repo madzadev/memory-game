@@ -27,7 +27,9 @@
   /* .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
   } */
-
+  /* h1 {
+    z-index: -11;
+  } */
   /* Position the front and back side */
   .flip-card-front,
   .flip-card-back {

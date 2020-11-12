@@ -1,66 +1,81 @@
 <script>
-  import Card from "./Card.svelte";
+import Card from "./Card.svelte";
 
-  //   Generate numbers Schwartzian transform method
-  let arr = [...Array(8).keys()]
-    .map((i) => i + 1)
-    .flatMap((i) => [i, i])
-    .map((a) => ({ sort: Math.random(), value: a }))
-    .sort((a, b) => a.sort - b.sort)
-    .map((a) => a.value);
+//   Generate numbers Schwartzian transform method
+const cards = 8;
 
-  let firstChoice = "";
-  let secondChoice = "";
+let arr = [...Array(cards).keys()]
+   .map((i) => i + 1)
+   .flatMap((i) => [i, i])
+   .map((a) => ({
+      sort: Math.random(),
+      value: a
+   }))
+   .sort((a, b) => a.sort - b.sort)
+   .map((a) => a.value);
 
-  let openCards = [];
+let firstChoice = "";
+let secondChoice = "";
 
-  let guesses = 0;
-  let matches = 0;
+let openCards = [];
 
-  const compare = (a, b) => {
-    ++guesses;
-    if (
+let guesses = 0;
+let matches = 0;
+
+const compare = async (a, b) => {
+   ++guesses;
+   if (
       a.nextElementSibling.firstChild.currentSrc ===
       b.nextElementSibling.firstChild.currentSrc
-    ) {
+   ) {
       console.log("Found a match");
       openCards.push(parseInt(a.innerText), parseInt(b.innerText));
       ++matches;
-    }
-  };
+      firstChoice = "";
+      secondChoice = "";
+   } else {
+      reset();
+   }
+};
 
-  const reset = (a, b) => {
-    setTimeout(() => {
-      a = "";
-      b = "";
-    }, 1000);
-  };
+const reset = () => {
+   setTimeout(() => {
+      firstChoice = "";
+      secondChoice = "";
+   }, 800);
+};
 
-  const cardClickHandler = (e) => {
-    if (firstChoice == "") {
-      firstChoice = e.target;
-      console.log("first click");
-    } else {
-      secondChoice = e.target;
-      console.log("second click");
-      compare(firstChoice, secondChoice);
-      reset(firstChoice, secondChoice);
-    }
-  };
+const cardClickHandler = (e) => {
+   if (secondChoice == '') {
+      if (firstChoice == "") {
+
+         firstChoice = e.target;
+         console.log("first click");
+         console.log(e);
+         console.log(firstChoice)
+      } else {
+         secondChoice = e.target;
+         console.log("second click");
+         console.log(secondChoice)
+         compare(firstChoice, secondChoice);
+      }
+   }
+
+};
 </script>
 
 <style>
-  h1 {
-    text-align: center;
-  }
+h1 {
+   text-align: center;
+}
 
-  main {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
+main {
+   max-width: 1000px;
+   margin: 0 auto;
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 20px;
+}
 </style>
 
 <h1>Svelte Memory Card game</h1>
@@ -74,5 +89,6 @@
   {/each}
   <p>Guesses: {guesses}</p>
   <p>Matches: {matches}</p>
-  <p>Percentage: {(matches * 100) / guesses}</p>
+  <p>Percentage: {guesses!=0?Math.round((matches * 100) / guesses):0}%</p>
+  <p>{cards==matches?'Congrats you won!':''}</p>
 </main>
