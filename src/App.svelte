@@ -4,6 +4,8 @@
   let first = "";
   let second = "";
 
+  let number = 0;
+
   const compare = (a, b) => {
     if (a === b) {
       console.log("images match");
@@ -16,12 +18,13 @@
   };
 
   const cardClickHandler = (e) => {
+    number = e.target.innerText;
     if (first == "") {
-      console.log(e);
       first = e.target.currentSrc;
     } else {
       second = e.target.currentSrc;
       compare();
+      reset();
     }
   };
 </script>
@@ -42,10 +45,11 @@
 
 <h1>Svelte Memory Card game</h1>
 <main>
-  {#each { length: 16 } as card, i}
+  {#each { length: 16 } as card, index}
     <Card
-      title={'?'}
+      title={index + 1}
       image={'https://source.unsplash.com/random/200x150'}
-      onClick={cardClickHandler} />
+      onClick={cardClickHandler}
+      active={number == index + 1 ? true : false} />
   {/each}
 </main>

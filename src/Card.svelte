@@ -1,5 +1,5 @@
 <script>
-  export let title, image, onClick;
+  export let title, image, onClick, active;
 </script>
 
 <style>
@@ -7,7 +7,6 @@
     background-color: transparent;
     width: 200px;
     height: 150px;
-    /* border: 1px solid #f1f1f1; */
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
     cursor: pointer;
   }
@@ -18,14 +17,16 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s;
+    transition: transform 0.5s;
     transform-style: preserve-3d;
   }
 
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
+  .active {
     transform: rotateY(180deg);
   }
+  /* .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  } */
 
   /* Position the front and back side */
   .flip-card-front,
@@ -41,6 +42,8 @@
   .flip-card-front {
     background-color: dodgerblue;
     color: white;
+    display: grid;
+    place-items: center; /*to center the back of cards */
   }
 
   /* Style the back side */
@@ -52,10 +55,10 @@
 </style>
 
 <div class="flip-card" on:click={onClick}>
-  <div class="flip-card-inner">
+  <div class={!active ? 'flip-card-inner' : 'flip-card-inner active'}>
     <div class="flip-card-front">
       <h1>{title}</h1>
     </div>
-    <div class="flip-card-back"><img src={image} alt="Avatar" /></div>
+    <div class="flip-card-back"><img src={image} alt="alt" /></div>
   </div>
 </div>
