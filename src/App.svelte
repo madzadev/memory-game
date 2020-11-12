@@ -22,7 +22,7 @@ let openCards = [];
 let guesses = 0;
 let matches = 0;
 
-const compare = async (a, b) => {
+const compare = (a, b) => {
    ++guesses;
    if (
       a.nextElementSibling.firstChild.currentSrc ===
@@ -48,7 +48,6 @@ const reset = () => {
 const cardClickHandler = (e) => {
    if (secondChoice == '') {
       if (firstChoice == "") {
-
          firstChoice = e.target;
          console.log("first click");
          console.log(e);
@@ -59,7 +58,11 @@ const cardClickHandler = (e) => {
          console.log(secondChoice)
          compare(firstChoice, secondChoice);
       }
-   }
+   } else {
+		secondChoice = "";
+		firstChoice = "";
+		firstChoice = e.target;
+	}
 
 };
 </script>
@@ -78,7 +81,7 @@ main {
 }
 </style>
 
-<h1>Svelte Memory Card game</h1>
+<h1>Svelte Memory Cards</h1>
 <main>
   {#each arr as card, i}
     <Card

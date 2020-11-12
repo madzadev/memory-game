@@ -43,6 +43,7 @@
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
     background-color: dodgerblue;
+    /* background:url('https://source.unsplash.com/random/200x150?background'); */
     color: white;
     display: grid;
     place-items: center; /*to center the back of cards */
