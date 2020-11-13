@@ -1,10 +1,12 @@
 <script>
   import Card from "./Card.svelte";
 
-  //   Generate numbers Schwartzian transform method
+  // Controls
   const cards = 8;
+  const theme = "bokeh";
 
-  let arr = [...Array(cards).keys()]
+  //   Generate numbers Schwartzian transform method
+  let arr = [...Array(cards / 2).keys()]
     .map((i) => i + 1)
     .flatMap((i) => [i, i])
     .map((a) => ({
@@ -32,7 +34,7 @@
     ) {
       ++matches;
       openCards.push(parseInt(a.innerText), parseInt(b.innerText));
-      if (cards == matches) {
+      if (cards / 2 == matches) {
         message = "You won!";
       } else {
         message = "Found a match!";
@@ -90,7 +92,7 @@
   {#each arr as card, i}
     <Card
       title={i + 1}
-      image={`https://source.unsplash.com/random/200x150?${card}`}
+      image={`https://source.unsplash.com/random/200x150?${card}?${theme ? theme : ''}`}
       onClick={cardClickHandler}
       active={openCards.includes(i + 1) || firstChoice.innerText == i + 1 || secondChoice.innerText == i + 1} />
   {/each}
