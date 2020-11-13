@@ -19,6 +19,8 @@ let secondChoice = "";
 
 let openCards = [];
 
+let message = 'Open cards!';
+
 let guesses = 0;
 let matches = 0;
 
@@ -28,12 +30,18 @@ const compare = (a, b) => {
       a.nextElementSibling.firstChild.currentSrc ===
       b.nextElementSibling.firstChild.currentSrc
    ) {
-      console.log("Found a match");
-      openCards.push(parseInt(a.innerText), parseInt(b.innerText));
       ++matches;
+      openCards.push(parseInt(a.innerText), parseInt(b.innerText));
+      if (cards == matches) {
+         message = "You won!";
+      } else {
+         message = "Found a match!";
+      }
+
       firstChoice = "";
       secondChoice = "";
    } else {
+      message = 'No match!'
       reset();
    }
 };
@@ -59,10 +67,10 @@ const cardClickHandler = (e) => {
          compare(firstChoice, secondChoice);
       }
    } else {
-		secondChoice = "";
-		firstChoice = "";
-		firstChoice = e.target;
-	}
+      secondChoice = "";
+      firstChoice = "";
+      firstChoice = e.target;
+   }
 
 };
 </script>
@@ -86,12 +94,12 @@ main {
   {#each arr as card, i}
     <Card
       title={i + 1}
-      image={`https://source.unsplash.com/random/200x150?${card}`}
+      image={`https://source.unsplash.com/random/200x150?${card}?code`}
       onClick={cardClickHandler}
       active={openCards.includes(i + 1) || firstChoice.innerText == i + 1 || secondChoice.innerText == i + 1} />
   {/each}
   <p>Guesses: {guesses}</p>
   <p>Matches: {matches}</p>
   <p>Percentage: {guesses!=0?Math.round((matches * 100) / guesses):0}%</p>
-  <p>{cards==matches?'Congrats you won!':''}</p>
+  <p>{message}</p>
 </main>
