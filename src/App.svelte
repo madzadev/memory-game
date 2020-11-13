@@ -1,92 +1,88 @@
 <script>
-import Card from "./Card.svelte";
+  import Card from "./Card.svelte";
 
-//   Generate numbers Schwartzian transform method
-const cards = 8;
+  //   Generate numbers Schwartzian transform method
+  const cards = 8;
 
-let arr = [...Array(cards).keys()]
-   .map((i) => i + 1)
-   .flatMap((i) => [i, i])
-   .map((a) => ({
+  let arr = [...Array(cards).keys()]
+    .map((i) => i + 1)
+    .flatMap((i) => [i, i])
+    .map((a) => ({
       sort: Math.random(),
-      value: a
-   }))
-   .sort((a, b) => a.sort - b.sort)
-   .map((a) => a.value);
+      value: a,
+    }))
+    .sort((a, b) => a.sort - b.sort)
+    .map((a) => a.value);
 
-let firstChoice = "";
-let secondChoice = "";
+  let firstChoice = "";
+  let secondChoice = "";
 
-let openCards = [];
+  let openCards = [];
 
-let message = 'Open cards!';
+  let message = "Open cards!";
 
-let guesses = 0;
-let matches = 0;
+  let guesses = 0;
+  let matches = 0;
 
-const compare = (a, b) => {
-   ++guesses;
-   if (
+  const compare = (a, b) => {
+    ++guesses;
+    if (
       a.nextElementSibling.firstChild.currentSrc ===
       b.nextElementSibling.firstChild.currentSrc
-   ) {
+    ) {
       ++matches;
       openCards.push(parseInt(a.innerText), parseInt(b.innerText));
       if (cards == matches) {
-         message = "You won!";
+        message = "You won!";
       } else {
-         message = "Found a match!";
+        message = "Found a match!";
       }
 
       firstChoice = "";
       secondChoice = "";
-   } else {
-      message = 'No match!'
+    } else {
+      message = "No match!";
       reset();
-   }
-};
+    }
+  };
 
-const reset = () => {
-   setTimeout(() => {
+  const reset = () => {
+    setTimeout(() => {
       firstChoice = "";
       secondChoice = "";
-   }, 800);
-};
+    }, 800);
+  };
 
-const cardClickHandler = (e) => {
-   if (secondChoice == '') {
+  const cardClickHandler = (e) => {
+    if (secondChoice == "") {
       if (firstChoice == "") {
-         firstChoice = e.target;
-         console.log("first click");
-         console.log(e);
-         console.log(firstChoice)
+        firstChoice = e.currentTarget.firstChild.firstChild;
+        console.log("first click");
       } else {
-         secondChoice = e.target;
-         console.log("second click");
-         console.log(secondChoice)
-         compare(firstChoice, secondChoice);
+        secondChoice = e.currentTarget.firstChild.firstChild;
+        console.log("second click");
+        compare(firstChoice, secondChoice);
       }
-   } else {
+    } else {
       secondChoice = "";
       firstChoice = "";
       firstChoice = e.target;
-   }
-
-};
+    }
+  };
 </script>
 
 <style>
-h1 {
-   text-align: center;
-}
+  h1 {
+    text-align: center;
+  }
 
-main {
-   max-width: 1000px;
-   margin: 0 auto;
-   display: grid;
-   grid-template-columns: repeat(4, 1fr);
-   gap: 20px;
-}
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
 </style>
 
 <h1>Svelte Memory Cards</h1>
@@ -94,12 +90,12 @@ main {
   {#each arr as card, i}
     <Card
       title={i + 1}
-      image={`https://source.unsplash.com/random/200x150?${card}?code`}
+      image={`https://source.unsplash.com/random/200x150?${card}`}
       onClick={cardClickHandler}
       active={openCards.includes(i + 1) || firstChoice.innerText == i + 1 || secondChoice.innerText == i + 1} />
   {/each}
   <p>Guesses: {guesses}</p>
   <p>Matches: {matches}</p>
-  <p>Percentage: {guesses!=0?Math.round((matches * 100) / guesses):0}%</p>
+  <p>Percentage: {guesses != 0 ? Math.round((matches * 100) / guesses) : 0}%</p>
   <p>{message}</p>
 </main>
