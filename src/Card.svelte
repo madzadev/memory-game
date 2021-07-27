@@ -5,13 +5,12 @@
 <style>
   .flip-card {
     background-color: transparent;
-    width: 200px;
-    height: 150px;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    width: 260px;
+    height: 200px;
+    perspective: 1000px;
     cursor: pointer;
   }
 
-  /* This container is needed to position the front and back side */
   .flip-card-inner {
     position: relative;
     width: 100%;
@@ -24,32 +23,22 @@
   .active {
     transform: rotateY(180deg);
   }
-  /* .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  } */
-  /* h1 {
-    z-index: -11;
-  } */
-  /* Position the front and back side */
+  
   .flip-card-front,
   .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
-
-  /* Style the front side (fallback if image is missing) */
   .flip-card-front {
     background-color: dodgerblue;
-    /* background:url('https://source.unsplash.com/random/200x150?background'); */
+    background:url('https://source.unsplash.com/random/260x200?white');
     color: white;
     display: grid;
-    place-items: center; /*to center the back of cards */
+    place-items: center;
   }
-
-  /* Style the back side */
   .flip-card-back {
     transform: rotateY(180deg);
     background-color: #bbb;

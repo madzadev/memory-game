@@ -3,7 +3,7 @@
 
   // Controls
   const cards = 8;
-  const theme = "bokeh";
+  const theme = "cars";
 
   //   Generate numbers Schwartzian transform method
   let arr = [...Array(cards / 2).keys()]
@@ -79,20 +79,24 @@
   }
 
   main {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));;
     gap: 20px;
   }
+
+
+
+ 
 </style>
 
 <h1>Svelte Memory Cards</h1>
 <main>
-  {#each arr as card, i}
+{#each arr as card, i}
     <Card
       title={i + 1}
-      image={`https://source.unsplash.com/random/200x150?${card}?${theme ? theme : ''}`}
+      image={`https://source.unsplash.com/random/260x200?${card}?${theme ? theme : ''}`}
       onClick={cardClickHandler}
       active={openCards.includes(i + 1) || firstChoice.innerText == i + 1 || secondChoice.innerText == i + 1} />
   {/each}
