@@ -2,8 +2,8 @@
   import Card from "./Card.svelte";
 
   // Controls
-  const cards = 8;
-  const theme = "cars";
+  const cards = 12;
+  const theme = "ferrari";
 
   //   Generate numbers Schwartzian transform method
   let arr = [...Array(cards / 2).keys()]
