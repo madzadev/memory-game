@@ -82,8 +82,9 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));;
     gap: 20px;
+    place-items: center;
   }
 
 
@@ -91,7 +92,7 @@
  
 </style>
 
-<h1>Svelte Memory Cards</h1>
+<h1>Memory Cards</h1>
 <main>
 {#each arr as card, i}
     <Card
