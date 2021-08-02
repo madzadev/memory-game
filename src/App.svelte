@@ -3,7 +3,7 @@
 
   // Controls
   const cards = 12;
-  const theme = "ferrari";
+  const theme = "animals";
 
   //   Generate numbers Schwartzian transform method
   let arr = [...Array(cards / 2).keys()]
@@ -63,7 +63,13 @@
       } else {
         secondChoice = e.currentTarget.firstChild.firstChild;
         console.log("second click");
-        compare(firstChoice, secondChoice);
+        if(firstChoice!==secondChoice) {
+          compare(firstChoice, secondChoice);
+        } else {
+          secondChoice = "";
+          firstChoice = "";
+          firstChoice = e.target;
+        }
       }
     } else {
       secondChoice = "";
@@ -83,7 +89,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));;
-    gap: 20px;
+    gap: 30px;
     place-items: center;
   }
 
