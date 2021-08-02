@@ -56,25 +56,16 @@
   };
 
   const cardClickHandler = (e) => {
-    if (secondChoice == "") {
-      if (firstChoice == "") {
-        firstChoice = e.currentTarget.firstChild.firstChild;
-        console.log("first click");
-      } else {
-        secondChoice = e.currentTarget.firstChild.firstChild;
-        console.log("second click");
-        if(firstChoice!==secondChoice) {
-          compare(firstChoice, secondChoice);
-        } else {
-          secondChoice = "";
-          firstChoice = "";
-          firstChoice = e.target;
-        }
-      }
-    } else {
-      secondChoice = "";
-      firstChoice = "";
+    if(!firstChoice) {
       firstChoice = e.target;
+    } else {
+      secondChoice = e.currentTarget.firstChild.firstChild;
+      if(firstChoice!==secondChoice) {
+        compare(firstChoice, secondChoice);
+      } else {
+        firstChoice='';
+        secondChoice='';
+      }
     }
   };
 </script>
