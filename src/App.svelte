@@ -93,9 +93,6 @@
     place-items: center;
   }
 
-
-
- 
 </style>
 
 <h1>Memory Cards</h1>
