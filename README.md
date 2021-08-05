@@ -1,8 +1,6 @@
 # Memory Game
 
-Memory games comes in different forms and variations.
-
-I decided to go with traditional approach, where users have to remember the positions of the cards and open two exact images sequentially to score points. Once all the cards are opened user is victorious.
+A memory game, where users have to remember the positions of the cards and open two exact images sequentially to score points. Once all the cards are opened user is victorious.
 
 I used Unsplash API to fetch images from their site.
 
