@@ -17,7 +17,6 @@
   .flip-card {
     background-color: transparent;
     width: 100%;
-    /* height: 100%; */
     height: 200px;
     perspective: 1000px;
     cursor: pointer;
@@ -47,9 +46,8 @@
 
   .flip-card-front {
     background-color: dodgerblue;
-    background: url("https://source.unsplash.com/random/260x200?gradient");
+    /* background: url("https://source.unsplash.com/random/260x200?gradient"); */
     background: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148808186.jpg?size=626&ext=jpg");
-
     color: white;
     display: grid;
     place-items: center;
