@@ -126,11 +126,12 @@
 
 <style>
   :global(body) {
-    padding: 0 20px;
+    padding: 20px 20px;
   }
   h1 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
+    /* padding-top: 10px; */
   }
 
   main {
@@ -143,7 +144,7 @@
   }
 
   p {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   #reset {
