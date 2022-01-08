@@ -130,6 +130,7 @@
   }
   h1 {
     text-align: center;
+    margin-bottom: 10px;
   }
 
   main {
@@ -139,6 +140,10 @@
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
     place-items: center;
+  }
+
+  p {
+    font-size: 20px;
   }
 
   #reset {
