@@ -115,7 +115,9 @@
   {/each}
   <p>Guesses: {guesses}</p>
   <p>Matches: {matches}</p>
-  <p>Percentage: {guesses != 0 ? Math.round((matches * 100) / guesses) : 0}%</p>
+  <p>
+    Percentage: {guesses != 0 ? Math.round((matches * 100) / guesses) : 0}%
+  </p>
   <p>{message}</p>
 </main>
 {#if message == "You won!"}
@@ -123,6 +125,9 @@
 {/if}
 
 <style>
+  :global(body) {
+    padding: 0 20px;
+  }
   h1 {
     text-align: center;
   }
@@ -131,7 +136,7 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
     place-items: center;
   }
