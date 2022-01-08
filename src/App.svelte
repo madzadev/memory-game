@@ -126,12 +126,11 @@
 
 <style>
   :global(body) {
-    padding: 20px 20px;
+    padding: 20px;
   }
   h1 {
     text-align: center;
     margin-bottom: 50px;
-    /* padding-top: 10px; */
   }
 
   main {
