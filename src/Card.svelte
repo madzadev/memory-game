@@ -46,8 +46,10 @@
 
   .flip-card-front {
     background-color: dodgerblue;
-    background: url("https://source.unsplash.com/random/560x320?white");
+    /* background: url("https://source.unsplash.com/random/560x320?white"); */
     /* background: url("https://img.freepik.com/free-vector/gradient-grainy-gradient-texture_79603-1642.jpg?size=626&ext=jpg"); */
+    /* background: url("https://images.squarespace-cdn.com/content/v1/5f5d2a0deae4ba68573c91a2/1612138636359-RQA6N3N7M9SPL1BO89E3/image.jpg?format=2500w"); */
+    background: url("https://source.unsplash.com/CYoRRCbl8Ws/560x320");
     color: white;
     display: grid;
     place-items: center;
