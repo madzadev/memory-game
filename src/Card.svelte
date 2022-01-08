@@ -16,7 +16,8 @@
 <style>
   .flip-card {
     background-color: transparent;
-    width: 260px;
+    width: 100%;
+    /* height: 100%; */
     height: 200px;
     perspective: 1000px;
     cursor: pointer;
@@ -47,13 +48,13 @@
   .flip-card-front {
     background-color: dodgerblue;
     background: url("https://source.unsplash.com/random/260x200?gradient");
-    background: url("https://source.unsplash.com/lVqaovi1Wf0/260x200");
+    background: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148808186.jpg?size=626&ext=jpg");
 
     color: white;
     display: grid;
     place-items: center;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-    /* border-radius: 5px; */
+    border-radius: 5px;
   }
 
   .flip-card-back {
@@ -61,6 +62,14 @@
     background-color: #bbb;
     color: black;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-    /* border-radius: 5px; */
+    border-radius: 5px;
+  }
+
+  .image {
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
   }
 </style>
