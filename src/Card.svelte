@@ -47,7 +47,7 @@
   .flip-card-front {
     background-color: dodgerblue;
     /* background: url("https://source.unsplash.com/random/260x200?gradient"); */
-    background: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148808186.jpg?size=626&ext=jpg");
+    background: url("https://img.freepik.com/free-vector/gradient-grainy-gradient-texture_79603-1642.jpg?size=626&ext=jpg");
     color: white;
     display: grid;
     place-items: center;
