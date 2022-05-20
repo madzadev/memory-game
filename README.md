@@ -4,7 +4,7 @@ A memory game, where users have to remember the positions of the cards and open 
 
 I used Unsplash API to fetch images from their site.
 
-![Alt img](https://images.ctfassets.net/zlsyc9paq6sa/1vw5KguANULQqNkPDNuAOP/d5e179fafd5f620b0b26a31dfc33cd5a/1627636877_x.gif)
+![Preview](https://github.com/madzadev/memory-game/blob/master/public/preview.gif)
 
 ## Features
 
