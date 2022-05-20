@@ -61,14 +61,6 @@
   const resetGame = async () => {
     arr = prepareArray(cards);
 
-    const images = Array.from(document.getElementsByClassName("image"));
-
-    images.forEach((image, index) => {
-      image.src = `https://source.unsplash.com/random/260x200?${arr[index]}?${
-        theme ? theme : ""
-      }`;
-    });
-
     (firstChoice = ""),
       (secondChoice = ""),
       (openCards = []),
