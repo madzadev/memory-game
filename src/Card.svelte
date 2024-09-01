@@ -1,8 +1,8 @@
 <script>
-  export let title, image, onClick, active;
+  export let title, image, onClick, onKeydown, active;
 </script>
 
-<div class="flip-card" on:click={onClick}>
+<div class="flip-card" on:click={onClick} on:keydown={onKeydown}>
   <div class={!active ? "flip-card-inner" : "flip-card-inner active"}>
     <div class="flip-card-front">
       <h1>{title}</h1>

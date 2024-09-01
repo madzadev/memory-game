@@ -114,7 +114,13 @@
   <p>{message}</p>
 </main>
 {#if message == "You won!"}
-  <p id="reset" on:click={resetGame}>Reset</p>
+<p 
+id="reset"
+on:click={resetGame} 
+on:keydown={(e) => e.key === 'Enter' && resetGame()}
+>
+Reset
+</p>
 {/if}
 
 <style>
