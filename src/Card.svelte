@@ -46,7 +46,6 @@
 
   .flip-card-front {
     background-color: dodgerblue;
-    background: url("https://source.unsplash.com/CYoRRCbl8Ws/560x320");
     color: white;
     display: grid;
     place-items: center;
